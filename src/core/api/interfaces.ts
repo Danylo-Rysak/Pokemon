@@ -1,10 +1,7 @@
-export interface PaginationParams {
-  limit?: number;
-  page?: number;
-}
+import { GeneralPokemonInfo, PokemonType } from 'core/interfaces';
 
 export interface PaginationResponse {
-  results: GetPokemonsResponse;
+  results: Array<GetPokemonsResponse>;
   count: number;
   next: string;
   previous: string;
@@ -22,11 +19,6 @@ export interface GetPokemonsResponse {
 export interface PokemonTypesResponse {
   count: number;
   results: PokemonType[];
-}
-
-export interface GeneralPokemonInfo {
-  name: string;
-  url: string;
 }
 
 export interface PokemonAbility {
@@ -64,25 +56,4 @@ export interface PokemonSprites {
   front_female: string | null;
   front_shiny: string | null;
   front_shiny_female: string | null;
-}
-
-export interface PokemonType extends GeneralPokemonInfo {}
-
-export interface PokemonFullInfo {
-  id: number;
-  abilities: PokemonAbility[];
-  base_experience: number;
-  forms: GeneralPokemonInfo[];
-  game_indices: PokemonGameIndex[];
-  height: number;
-  is_default: boolean;
-  location_area_encounters: string;
-  moves: PokemonMove[];
-  name: string;
-  order: number;
-  species: GeneralPokemonInfo;
-  stats: PokemonStat[];
-  sprites: PokemonSprites;
-  types: { slot: number; type: PokemonType }[];
-  weight: number;
 }

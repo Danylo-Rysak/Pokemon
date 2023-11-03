@@ -1,4 +1,3 @@
-// Libs
 import axios, { AxiosRequestConfig } from 'axios';
 
 const axiosConfig: AxiosRequestConfig = {

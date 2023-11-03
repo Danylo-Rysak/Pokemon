@@ -1,13 +1,10 @@
-// Libs
-import { pokemonApi } from './index';
-// Interfaces
+import { pokemonApi } from './axios';
 import {
-  PokemonFullInfo,
   GetPokemonFullInfoParams,
-  PaginationParams,
   PaginationResponse,
   PokemonTypesResponse,
-} from './interfaces';
+} from 'core/api/interfaces';
+import { PaginationParams, PokemonFullInfo } from 'core/interfaces';
 
 export const getPokemons = ({ limit, page }: PaginationParams = {}) =>
   pokemonApi
