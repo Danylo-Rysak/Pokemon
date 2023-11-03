@@ -1,9 +1,7 @@
-import {FC} from "react";
+import { FC } from 'react';
 
 const App: FC = () => {
-  return (
-    <div>Pokemon</div>
-  )
-}
+  return <div>Pokemon</div>;
+};
 
-export default App
+export default App;
