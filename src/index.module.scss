@@ -1,0 +1,15 @@
+body {
+  background-color: #cdfff5;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+
+  &__title {
+    width: 250px;
+    height: 100px;
+  }
+}

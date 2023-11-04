@@ -9,7 +9,7 @@ const initialState: PokemonState = {
   types: [],
 };
 
-const pokemonSlice = createSlice({
+const pokemonStore = createSlice({
   name: 'pokemon',
   initialState,
   reducers: {},
@@ -34,4 +34,4 @@ const pokemonSlice = createSlice({
   },
 });
 
-export default pokemonSlice.reducer;
+export default pokemonStore.reducer;

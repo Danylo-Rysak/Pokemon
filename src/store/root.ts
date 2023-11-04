@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import calendarStore from './calendar-service/reducer';
+import pokemonStore from './pokemon-service/reducer';
 
 const store = configureStore({
   reducer: {
-    calendarStore,
+    pokemonStore,
   },
 });
 
