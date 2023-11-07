@@ -4,6 +4,7 @@ import { PokemonState } from './interfaces';
 import { PokemonFullInfo, PokemonType } from 'core/interfaces';
 
 const initialState: PokemonState = {
+  isLoading: false,
   pokemons: [],
   total: 0,
   types: [],
@@ -15,6 +16,9 @@ const pokemonStore = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(getPokemonsList.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(
         getPokemonsList.fulfilled,
         (
@@ -23,8 +27,12 @@ const pokemonStore = createSlice({
         ) => {
           state.pokemons = payload.pokemons;
           state.total = payload.total;
+          state.isLoading = false;
         }
       )
+      .addCase(getPokemonsList.rejected, (state) => {
+        state.isLoading = false;
+      })
       .addCase(
         getPokemonTypes.fulfilled,
         (state, { payload }: PayloadAction<Array<PokemonType>>) => {
