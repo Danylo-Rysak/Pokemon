@@ -1,7 +1,5 @@
 // Libs
 import { FC } from 'react';
-// Styles
-import styles from './index.module.scss';
 
 interface InfoProps {
   title: string;
@@ -11,7 +9,7 @@ interface InfoProps {
 
 const Info: FC<InfoProps> = ({ items, title, scroll }) => {
   return (
-    <div className={styles.info}>
+    <div>
       <div style={{ fontWeight: '600' }}>{title}:</div>
       <ul style={scroll ? { maxHeight: 150, overflow: 'scroll' } : {}}>
         {items.map((item, index) => (
