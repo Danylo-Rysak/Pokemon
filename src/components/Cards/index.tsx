@@ -1,8 +1,9 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { ChangeEvent, FC, useEffect } from 'react';
 import { DispatchType } from 'store/root';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPokemonsList } from 'store/pokemon-service/actions';
 import {
+  getCurrentPageSelector,
   getIsLoadingSelector,
   getPokemonsCountSelector,
   getPokemonsSelector,
@@ -11,30 +12,30 @@ import Card from './Card';
 import { PokemonFullInfo } from 'core/interfaces';
 import styled from './index.module.scss';
 import { Pagination } from '@mui/material';
-import Loader from '../Loader/Loader';
+import Index from 'components/Loader';
+import { setCurrentPage } from 'store/pokemon-service/reducer';
 
 const Cards: FC = () => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-
   const dispatch: DispatchType = useDispatch();
 
   const pokemons = useSelector(getPokemonsSelector);
   const pokemonsCount = useSelector(getPokemonsCountSelector);
   const isLoading = useSelector(getIsLoadingSelector);
+  const currentPage = useSelector(getCurrentPageSelector);
 
   useEffect(() => {
     dispatch(getPokemonsList({ page: currentPage, limit: 12 }));
   }, [currentPage]);
 
   const handleChange = (_event: ChangeEvent<unknown>, value: number) => {
-    setCurrentPage(value);
+    dispatch(setCurrentPage(value));
   };
 
   const totalPages = Math.ceil(pokemonsCount / 12);
 
   return (
     <>
-      {isLoading && <Loader />}
+      {isLoading && <Index />}
       <div className={styled.cards}>
         {pokemons.map((pokemon, i) => (
           <Card key={i} {...(pokemon as PokemonFullInfo)} />
@@ -44,6 +45,7 @@ const Cards: FC = () => {
         disabled={isLoading}
         onChange={handleChange}
         count={totalPages}
+        page={currentPage}
         color="primary"
       />
     </>

@@ -4,6 +4,7 @@ import { PokemonState } from './interfaces';
 import { PokemonFullInfo, PokemonType } from 'core/interfaces';
 
 const initialState: PokemonState = {
+  currentPage: 1,
   isLoading: false,
   pokemons: [],
   total: 0,
@@ -13,7 +14,11 @@ const initialState: PokemonState = {
 const pokemonStore = createSlice({
   name: 'pokemon',
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentPage: (state, { payload }: PayloadAction<number>) => {
+      state.currentPage = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPokemonsList.pending, (state) => {
@@ -41,5 +46,7 @@ const pokemonStore = createSlice({
       );
   },
 });
+
+export const { setCurrentPage } = pokemonStore.actions;
 
 export default pokemonStore.reducer;

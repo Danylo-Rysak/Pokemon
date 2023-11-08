@@ -11,3 +11,7 @@ export const getPokemonsCountSelector = (store: StoreType) => {
 export const getIsLoadingSelector = (store: StoreType) => {
   return store.pokemonStore.isLoading;
 };
+
+export const getCurrentPageSelector = (store: StoreType) => {
+  return store.pokemonStore.currentPage;
+};

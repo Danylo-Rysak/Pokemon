@@ -1,0 +1,44 @@
+.arrowBack {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.details {
+  padding: 20px 30px;
+  background: khaki;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  &__name {
+    text-align: center;
+    font-size: 21px;
+    font-weight: 700;
+    color: #336d82;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__img {
+    width: 150px;
+    height: 150px;
+  }
+
+  &__parametrs {
+    display: flex;
+    gap: 97px;
+    color: #00573c;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &__info {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    color: #00573c;
+  }
+}
