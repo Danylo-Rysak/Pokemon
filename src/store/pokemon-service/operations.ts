@@ -25,5 +25,5 @@ export const getPokemonTypesOperation = (
   state: PokemonState,
   { payload }: PayloadAction<Array<PokemonType>>
 ) => {
-  state.types = payload;
+  state.types = [{ name: 'all', url: '' }, ...payload];
 };

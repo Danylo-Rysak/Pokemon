@@ -1,5 +1,5 @@
 # Technologies
-React + TypeScript + Vite + Material UI + react-router-dom + Axios + SASS
+React + TypeScript + Vite + Redux Toolkit + Material UI + react-router-dom + Axios + SASS
 
 ## Start project local
 npm run dev
