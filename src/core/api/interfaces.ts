@@ -18,7 +18,7 @@ export interface GetPokemonsResponse {
 
 export interface PokemonTypesResponse {
   count: number;
-  results: PokemonType[];
+  results: Array<PokemonType>;
 }
 
 export interface PokemonAbility {

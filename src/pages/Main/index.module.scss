@@ -1,15 +1,17 @@
-body {
-  background-color: #cdfff5;
-}
-
-.app {
+.main {
   display: flex;
   flex-direction: column;
-  gap: 30px;
   align-items: center;
+  gap: 25px;
 
   &__title {
     width: 250px;
     height: 100px;
+  }
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    gap: 250px;
   }
 }

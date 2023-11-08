@@ -8,6 +8,10 @@ export const getPokemonsCountSelector = (store: StoreType) => {
   return store.pokemonStore.total;
 };
 
+export const getPokemonsTypesSelector = (store: StoreType) => {
+  return store.pokemonStore.types;
+};
+
 export const getIsLoadingSelector = (store: StoreType) => {
   return store.pokemonStore.isLoading;
 };

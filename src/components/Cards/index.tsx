@@ -1,25 +1,30 @@
-import { ChangeEvent, FC, useEffect } from 'react';
-import { DispatchType } from 'store/root';
+// Libs
+import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// Store
+import { DispatchType } from 'store/root';
+// Actions
 import { getPokemonsList } from 'store/pokemon-service/actions';
+// Selectors
 import {
   getCurrentPageSelector,
   getIsLoadingSelector,
-  getPokemonsCountSelector,
-  getPokemonsSelector,
 } from 'store/pokemon-service/selectors';
-import Card from './Card';
-import { PokemonFullInfo } from 'core/interfaces';
-import styled from './index.module.scss';
-import { Pagination } from '@mui/material';
+// Components
 import Index from 'components/Loader';
-import { setCurrentPage } from 'store/pokemon-service/reducer';
+import Card from './Card';
+// Interfaces
+import { PokemonFullInfo } from 'core/interfaces';
+// Styles
+import styled from './index.module.scss';
 
-const Cards: FC = () => {
+interface CardsProps {
+  pokemonsList: Array<PokemonFullInfo>;
+}
+
+const Cards: FC<CardsProps> = ({ pokemonsList }) => {
   const dispatch: DispatchType = useDispatch();
 
-  const pokemons = useSelector(getPokemonsSelector);
-  const pokemonsCount = useSelector(getPokemonsCountSelector);
   const isLoading = useSelector(getIsLoadingSelector);
   const currentPage = useSelector(getCurrentPageSelector);
 
@@ -27,27 +32,14 @@ const Cards: FC = () => {
     dispatch(getPokemonsList({ page: currentPage, limit: 12 }));
   }, [currentPage]);
 
-  const handleChange = (_event: ChangeEvent<unknown>, value: number) => {
-    dispatch(setCurrentPage(value));
-  };
-
-  const totalPages = Math.ceil(pokemonsCount / 12);
-
   return (
     <>
       {isLoading && <Index />}
       <div className={styled.cards}>
-        {pokemons.map((pokemon, i) => (
-          <Card key={i} {...(pokemon as PokemonFullInfo)} />
+        {pokemonsList.map((pokemon, i) => (
+          <Card key={i} {...pokemon} />
         ))}
       </div>
-      <Pagination
-        disabled={isLoading}
-        onChange={handleChange}
-        count={totalPages}
-        page={currentPage}
-        color="primary"
-      />
     </>
   );
 };
