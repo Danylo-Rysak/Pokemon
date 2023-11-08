@@ -1,3 +1,4 @@
+// Interfaces
 import { GeneralPokemonInfo, PokemonType } from 'core/interfaces';
 
 export interface PaginationResponse {

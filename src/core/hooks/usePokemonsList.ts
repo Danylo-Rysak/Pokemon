@@ -1,12 +1,16 @@
+// Libs
 import { useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
+// Selectors
 import {
   getCurrentPageSelector,
   getPokemonsCountSelector,
   getPokemonsSelector,
 } from 'store/pokemon-service/selectors';
-import { PokemonFullInfo } from '../interfaces';
-import { filterPokemonsByType, search } from '../functions';
+// Functions
+import { filterPokemonsByType, search } from 'core/functions';
+// Interfaces
+import { PokemonFullInfo } from 'core/interfaces';
 
 export const usePokemonsList = () => {
   const pokemons = useSelector(getPokemonsSelector);

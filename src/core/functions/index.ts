@@ -1,4 +1,5 @@
-import { PokemonFullInfo } from '../interfaces';
+// Interfaces
+import { PokemonFullInfo } from 'core/interfaces';
 
 export const search = <T extends object>(array: T[], field: keyof T, query?: string) => {
   if (!query) return array as T[];

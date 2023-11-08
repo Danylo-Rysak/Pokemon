@@ -1,3 +1,4 @@
+// Store
 import { StoreType } from '../root';
 
 export const getPokemonsSelector = (store: StoreType) => {

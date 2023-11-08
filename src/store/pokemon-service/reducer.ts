@@ -1,7 +1,16 @@
+// Libs
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+// Actions
 import { getPokemonsList, getPokemonTypes } from './actions';
+// Operations
+import {
+  getPokemonListFulfilledOperation,
+  getPokemonListPendingOperation,
+  getPokemonListRejectedOperation,
+  getPokemonTypesOperation,
+} from './operations';
+// Interfaces
 import { PokemonState } from './interfaces';
-import { PokemonFullInfo, PokemonType } from 'core/interfaces';
 
 const initialState: PokemonState = {
   currentPage: 1,
@@ -21,29 +30,10 @@ const pokemonStore = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getPokemonsList.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(
-        getPokemonsList.fulfilled,
-        (
-          state,
-          { payload }: PayloadAction<{ pokemons: Array<PokemonFullInfo>; total: number }>
-        ) => {
-          state.pokemons = payload.pokemons;
-          state.total = payload.total;
-          state.isLoading = false;
-        }
-      )
-      .addCase(getPokemonsList.rejected, (state) => {
-        state.isLoading = false;
-      })
-      .addCase(
-        getPokemonTypes.fulfilled,
-        (state, { payload }: PayloadAction<Array<PokemonType>>) => {
-          state.types = payload;
-        }
-      );
+      .addCase(getPokemonsList.pending, getPokemonListPendingOperation)
+      .addCase(getPokemonsList.fulfilled, getPokemonListFulfilledOperation)
+      .addCase(getPokemonsList.rejected, getPokemonListRejectedOperation)
+      .addCase(getPokemonTypes.fulfilled, getPokemonTypesOperation);
   },
 });
 

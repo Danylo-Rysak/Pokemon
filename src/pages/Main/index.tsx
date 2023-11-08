@@ -7,7 +7,7 @@ import Cards from 'components/Cards';
 import SearchInput from 'components/Search';
 import FilterByType from 'components/FilterByType';
 // Hooks
-import { usePokemonsList } from 'core/hooks';
+import { usePokemonsList } from 'core/hooks/usePokemonsList';
 // Actions
 import { getPokemonTypes } from 'store/pokemon-service/actions';
 // Reducers
@@ -38,6 +38,7 @@ const Main: FC = () => {
   };
 
   const totalPages = Math.ceil(pokemonsCount / 12);
+
   return (
     <div className={styles.main}>
       <img className={styles.main__title} src={title} alt="title" />

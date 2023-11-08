@@ -1,3 +1,4 @@
+// Interfaces
 import {
   PokemonAbility,
   PokemonGameIndex,

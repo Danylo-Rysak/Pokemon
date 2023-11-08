@@ -2,13 +2,14 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 import { MenuItem, FormControl, Select, InputLabel } from '@mui/material';
 import { useSelector } from 'react-redux';
+// Selectors
 import { getPokemonsTypesSelector } from 'store/pokemon-service/selectors';
 
-interface FilterByNameProps {
+interface FilterByTypeProps {
   setSelectedType: Dispatch<SetStateAction<string>>;
 }
 
-const FilterByName: FC<FilterByNameProps> = ({ setSelectedType }) => {
+const FilterByType: FC<FilterByTypeProps> = ({ setSelectedType }) => {
   const types = useSelector(getPokemonsTypesSelector);
 
   return (
@@ -25,4 +26,4 @@ const FilterByName: FC<FilterByNameProps> = ({ setSelectedType }) => {
   );
 };
 
-export default FilterByName;
+export default FilterByType;

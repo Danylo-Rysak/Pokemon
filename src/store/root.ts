@@ -1,5 +1,7 @@
+// Libs
 import { configureStore } from '@reduxjs/toolkit';
-import pokemonStore from './pokemon-service/reducer';
+// Reducers
+import pokemonStore from 'store/pokemon-service/reducer';
 
 const store = configureStore({
   reducer: {

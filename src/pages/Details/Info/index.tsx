@@ -1,4 +1,6 @@
+// Libs
 import { FC } from 'react';
+// Styles
 import styles from './index.module.scss';
 
 interface InfoProps {

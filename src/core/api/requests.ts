@@ -1,4 +1,6 @@
+// API
 import { pokemonApi } from './axios';
+// Interfaces
 import {
   GetPokemonFullInfoParams,
   PaginationResponse,

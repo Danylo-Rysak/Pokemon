@@ -1,9 +1,14 @@
+// Libs
 import { FC } from 'react';
-import { PokemonFullInfo } from 'core/interfaces';
 import { Link, useLocation } from 'react-router-dom';
+// Components
 import Info from './Info';
-import styles from './index.module.scss';
+// Interfaces
+import { PokemonFullInfo } from 'core/interfaces';
+// Icons
 import arrowBack from 'assets/icons/arrow-back.svg';
+// Styles
+import styles from './index.module.scss';
 
 const Details: FC = () => {
   const { state } = useLocation();

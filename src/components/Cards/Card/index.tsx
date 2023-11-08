@@ -1,8 +1,12 @@
-import { PokemonFullInfo } from 'core/interfaces';
-import styled from './index.module.scss';
+// Libs
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
+// Interfaces
+import { PokemonFullInfo } from 'core/interfaces';
+// Styles
+import styled from './index.module.scss';
 
-const Card = (pokemonInfo: PokemonFullInfo) => (
+const Card: FC<PokemonFullInfo> = (pokemonInfo) => (
   <Link
     className={styled.card}
     to={`/pokemon-detail/${pokemonInfo?.id}`}
